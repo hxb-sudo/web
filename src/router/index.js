@@ -210,12 +210,6 @@ export const constantRouterMap = [
         meta: { title: '生产订单管理'}
       },
       {
-        path: 'warehouseManagement',
-        name: 'WarehouseManagement',
-        component: () => import('../views/projectorders/warehouseManagement'),
-        meta: { title: '仓储管理'}
-      },
-      {
         path: 'position1',
         name: 'Position',
         hidden: true,
