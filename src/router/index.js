@@ -33,7 +33,8 @@ export const constantRouterMap = [
     hidden: true,
     children: [{
       path: 'dashboard',
-      component: () => import('@/views/dashboard/index')
+      component: () => import('@/views/dashboard/index'),
+      meta: { title: '首页', icon: 'el-icon-s-home' }
     }]
   },
 
@@ -42,19 +43,47 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    meta: { title: '平台管理', icon: 'example' },
     children: [
       {
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        meta: { title: '租户管理' },
+        children: [
+          {
+            path: 'table-1',
+            component: () => import('@/views/table/user/lessee'),
+            name: 'table-1',
+            meta: { title: '租户' },
+          },
+          {
+            path: 'table-2',
+            component: () => import('@/views/table/user/menu'),
+            name: 'table-2',
+            meta: { title: '菜单管理' }
+          },
+          //  租户路由
+          {
+            path: "usermessage",
+            name: "租户详情",
+            component: () => import('@/views/table/user/lessee/les/message'),
+            meta: { title: '租户详情', noCache: true },
+            hidden: true
+          }
+        ]
       },
       {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        meta: { title: '用户管理', icon: 'tree' }
+      },
+      {
+        path: 'role',
+        name: 'Role',
+        component: () => import('@/views/role/index'),
+        meta: { title: '权限角色管理', icon: 'user' }
       }
     ]
   },
@@ -154,13 +183,13 @@ export const constantRouterMap = [
         path: 'position',
         name: 'Position',
         component: () => import('@/views/basicInformation/position'),
-        meta: { title: '位置信息'}
+        meta: { title: '位置信息' }
       },
       {
         path: 'addPosition',
         name: 'addPosition',
         component: () => import('@/views/basicInformation/children/addPosition'),
-        meta: { title: '添加位置'}
+        meta: { title: '添加位置' }
       }
     ]
   },
