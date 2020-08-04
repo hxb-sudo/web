@@ -78,6 +78,7 @@ export const constantRouterMap = [
     redirect: '/nested/menu1',
     name: 'Nested',
     meta: {
+      roles: ['editor'],
       title: 'Nested',
       icon: 'nested'
     },
@@ -160,6 +161,37 @@ export const constantRouterMap = [
         name: 'addPosition',
         component: () => import('@/views/basicInformation/children/addPosition'),
         meta: { title: '添加位置'}
+      }
+    ]
+  },
+
+  {
+    path: '/projectOrders',
+    name: 'ProjectOrders',
+    component: Layout,
+    meta:{
+      title: '项目订单管理',
+      icon: 'nested'
+    },
+    children: [
+      {
+        path: 'productionOrderManagement',
+        name: 'ProductionOrderManagement',
+        component: () => import('../views/projectorders/productionOrderManagement'),
+        meta: { title: '生产订单管理'}
+      },
+      {
+        path: 'warehouseManagement',
+        name: 'WarehouseManagement',
+        component: () => import('../views/projectorders/warehouseManagement'),
+        meta: { title: '仓储管理'}
+      },
+      {
+        path: 'position1',
+        name: 'Position',
+        hidden: true,
+        component: () => import('../views/basicInformation/position'),
+        meta: { title: '位置信息'}
       }
     ]
   },

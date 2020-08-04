@@ -11,8 +11,9 @@ import router from './router'
 import store from './store'
 
 import '@/icons' // icon
-import '@/permission' // permission control
+import './permission' // permission control
 import './mock/index'
+
 
 Vue.use(ElementUI, { locale })
 
