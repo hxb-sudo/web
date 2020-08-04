@@ -13,6 +13,7 @@ import store from './store'
 import '@/icons' // icon
 import './permission' // permission control
 import './mock/index'
+import './mock/les'
 
 
 Vue.use(ElementUI, { locale })

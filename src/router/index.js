@@ -65,7 +65,7 @@ export const constantRouterMap = [
           },
           //  租户路由
           {
-            path: "usermessage",
+            path: "usermessage/:id",
             name: "租户详情",
             component: () => import('@/views/table/user/lessee/les/message'),
             meta: { title: '租户详情', noCache: true },

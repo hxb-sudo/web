@@ -1,6 +1,5 @@
 import Mock from 'mockjs'
 
-
 const user = {
   code: 20000,
   data: {
@@ -46,3 +45,4 @@ Mock.mock('http://127.0.0.1:8001/user/info', 'get', res => {
 Mock.mock('http://127.0.0.1:8001/manageservice/position/list', 'post', res => {
   return positionList
 })
+
