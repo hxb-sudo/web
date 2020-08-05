@@ -126,7 +126,13 @@
         immediate: true,
         deep: true,
         handler (value){
-          this.ruleForm = value
+          this.ruleForm.orderID = value.orderID
+          this.ruleForm.orderContent = value.orderContent
+          this.ruleForm.gross = value.gross
+          this.ruleForm.productionCount = value.productionCount
+          this.ruleForm.overCount = value.overCount
+          this.ruleForm.estimatedTime = value.estimatedTime
+          this.ruleForm.remark = value.remark
         }
       }
 
