@@ -31,6 +31,10 @@
 
       <el-button type="primary" icon="el-icon-search" @click="getList()">查询</el-button>
       <el-button type="default" @click="resetData()">清空</el-button>
+
+      <router-link :to="'usermessage'">
+             <el-button type="primary">添加新租户</el-button>
+          </router-link>
     </el-form>
 
     <!-- 表格 -->
@@ -55,7 +59,7 @@
         <template slot-scope="scope">
           <!-- :to 跳转到那个地方去-->
           <router-link :to="'usermessage/'+ scope.row.id">
-            <el-button type="primary" size="mini" icon="el-icon-edit">查看详情信息</el-button>
+            <el-button type="primary" size="mini" icon="el-icon-edit">编辑详情信息</el-button>
           </router-link>
           <el-button
             type="danger"
