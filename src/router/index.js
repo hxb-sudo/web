@@ -72,7 +72,7 @@ export const constantRouterMap = [
             component: () => import('@/views/table/user/lessee/les/message'),
             meta: { title: '租户详情', noCache: true },
             hidden: true
-          }, 
+          },
           //  添加租户路由
           {
             path: "usermessage",
@@ -97,8 +97,8 @@ export const constantRouterMap = [
         meta: { title: '用户修改' },
         hidden: true
       },
-       // 添加用户
-       {
+      // 添加用户
+      {
         path: 'save',
         name: 'save',
         component: () => import('@/views/tree/save'),
@@ -126,9 +126,16 @@ export const constantRouterMap = [
         name: 'index',
         component: () => import('@/views/classes/classes'),
         meta: { title: '产品类别管理', icon: '' }
+      },
+      // 详情修改页面
+      {
+        path: 'activesave/:id',
+        name: 'activesave',
+        component: () => import('@/views/classes/express/saveandupd'),
+        meta: { title: '产品详情修改', icon: '' },
+        hidden: true
       }
     ]
-
   },
   {
     path: '/form',
@@ -240,7 +247,7 @@ export const constantRouterMap = [
     path: '/projectOrders',
     name: 'ProjectOrders',
     component: Layout,
-    meta:{
+    meta: {
       title: '项目订单管理',
       icon: 'nested'
     },
@@ -249,13 +256,13 @@ export const constantRouterMap = [
         path: 'productionOrderManagement',
         name: 'ProductionOrderManagement',
         component: () => import('../views/projectorders/productionOrderManagement'),
-        meta: { title: '生产订单管理'}
+        meta: { title: '生产订单管理' }
       },
       {
         path: 'position1',
         name: 'Position',
         component: () => import('../views/basicInformation/position'),
-        meta: { title: '位置信息'}
+        meta: { title: '位置信息' }
       }
     ]
   },
@@ -273,13 +280,13 @@ export const constantRouterMap = [
         path: 'specialOffer',
         name: 'SpecialOffer',
         component: () => import('../views/Interactivemarketing/specialOffer'),
-        meta: { title: '优惠活动'}
+        meta: { title: '优惠活动' }
       },
       {
         path: 'advertisingManagement',
         name: 'AdvertisingManagement',
         component: () => import('../views/Interactivemarketing/advertisingManagement'),
-        meta: { title: '广告管理'}
+        meta: { title: '广告管理' }
       }
     ]
   },

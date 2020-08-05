@@ -73,6 +73,87 @@ Mock.mock(`http://127.0.0.1:8001/iot-use/getuserbyid`, 'get', res => {
 })
 // ===========================================权限角色=======================================
 
+// ===========================================类型管理_智能快递柜=======================================
+
+// 返回数据
+const classeslist = [
+    {   id:1,
+        shortname: "标准25口",
+        longname: "标准柜16小格口2中格口2大格口",
+        wide: 1200,
+        hige: 1900,
+        deep: 400,
+        status: true,
+        description: "标准柜"
+      },
+      {
+        id:2,
+        shortname: "标准25口",
+        longname: "标准柜16小格口2中格口2大格口",
+        wide: 1200,
+        hige: 1900,
+        deep: 400,
+        status: true,
+        description: "标准柜"
+      },
+      {
+        id:3,
+        shortname: "标准25口",
+        longname: "标准柜16小格口2中格口2大格口",
+        wide: 1200,
+        hige: 1900,
+        deep: 400,
+        status: true,
+        description: "标准柜"
+      },
+      {
+        id:4,
+        shortname: "标准25口",
+        longname: "标准柜16小格口2中格口2大格口",
+        wide: 1200,
+        hige: 1900,
+        deep: 400,
+        status: true,
+        description: "标准柜"
+      },
+      {
+        id:5,
+        shortname: "标准25口",
+        longname: "标准柜16小格口2中格口2大格口",
+        wide: 1200,
+        hige: 1900,
+        deep: 400,
+        status: true,
+        description: "标准柜"
+      },
+      {
+        id:6,
+        shortname: "标准25口",
+        longname: "标准柜16小格口2中格口2大格口",
+        wide: 1200,
+        hige: 1900,
+        deep: 400,
+        status: true,
+        description: "标准柜"
+      },
+      {
+        id:9,
+        shortname: "标准25口",
+        longname: "标准柜16小格口2中格口2大格口",
+        wide: 1200,
+        hige: 1900,
+        deep: 400,
+        status: true,
+        description: "标准柜"
+      }
+]
 
 
+Mock.mock(`http://127.0.0.1:8001/iot-clas/classeslist`, 'get', res => {
+    return {
+        code: 20000,
+        message: '数据初始化',
+        data: classeslist
+    }
+})
 
