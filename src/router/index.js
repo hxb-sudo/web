@@ -182,13 +182,13 @@ export const constantRouterMap = [
       {
         path: 'position',
         name: 'Position',
-        component: () => import('@/views/basicInformation/position'),
+        component: () => import('../views/basicInformation/position'),
         meta: { title: '位置信息' }
       },
       {
         path: 'addPosition',
         name: 'addPosition',
-        component: () => import('@/views/basicInformation/children/addPosition'),
+        component: () => import('../views/basicInformation/children/addPosition'),
         meta: { title: '添加位置' }
       }
     ]
@@ -212,9 +212,32 @@ export const constantRouterMap = [
       {
         path: 'position1',
         name: 'Position',
-        hidden: true,
         component: () => import('../views/basicInformation/position'),
         meta: { title: '位置信息'}
+      }
+    ]
+  },
+
+  {
+    path: '/interactivemarketing',
+    name: 'Interactivemarketing',
+    component: Layout,
+    meta: {
+      title: '互动推广',
+      icon: 'nested'
+    },
+    children: [
+      {
+        path: 'specialOffer',
+        name: 'SpecialOffer',
+        component: () => import('../views/Interactivemarketing/specialOffer'),
+        meta: { title: '优惠活动'}
+      },
+      {
+        path: 'advertisingManagement',
+        name: 'AdvertisingManagement',
+        component: () => import('../views/Interactivemarketing/advertisingManagement'),
+        meta: { title: '广告管理'}
       }
     ]
   },
