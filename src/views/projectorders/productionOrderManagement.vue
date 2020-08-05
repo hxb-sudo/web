@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <br>
+    <br><br>
     <div style="margin-left: 20px"><el-button type="primary" @click="addProductionOrder()">添加位置</el-button><el-button type="primary" @click="exportExcel">导出</el-button></div>
 
     <!--添加生产订单弹出层-->
