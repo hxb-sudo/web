@@ -106,7 +106,7 @@
             gross: null,
             productionCount: 0,
             overCount: 0,
-            estimatedTime: new Date(),
+            estimatedTime: '2020-08-04 13:50:57',
             remark: ''
         }
       },
