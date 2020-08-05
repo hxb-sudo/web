@@ -6,14 +6,14 @@
       <el-row>
         <el-col :span="12">
           <el-form-item label="活动名称">
-            <el-input v-model="RowData.activityName"></el-input>
+            <el-input v-model="ruleForm.activityName"></el-input>
           </el-form-item>
         </el-col>
 
 
         <el-col :span="12">
           <el-form-item label="优惠详情">
-            <el-input v-model="RowData.details"></el-input>
+            <el-input v-model="ruleForm.details"></el-input>
           </el-form-item>
         </el-col>
       </el-row>
@@ -21,13 +21,13 @@
       <el-row>
         <el-col :span="12">
           <el-form-item label="获取途径">
-            <el-input v-model="RowData.access"></el-input>
+            <el-input v-model="ruleForm.access"></el-input>
           </el-form-item>
         </el-col>
 
         <el-col :span="12">
           <el-form-item label="优惠规则">
-            <el-input v-model="RowData.preferentialRules"></el-input>
+            <el-input v-model="ruleForm.preferentialRules"></el-input>
           </el-form-item>
         </el-col>
       </el-row>
@@ -37,8 +37,8 @@
 
           <el-form-item label="是否启用" class="block">
             <template>
-              <el-radio v-model="RowData.able" :label="true">启用</el-radio>
-              <el-radio v-model="RowData.able" :label="false">关闭</el-radio>
+              <el-radio v-model="ruleForm.able" :label="true">启用</el-radio>
+              <el-radio v-model="ruleForm.able" :label="false">关闭</el-radio>
             </template>
           </el-form-item>
 
@@ -99,15 +99,20 @@ export default {
       this.$emit('closeEditDialog')
     }
   },
-  /*watch:{
+  watch:{
     RowData:{
-      immediate:true,
-      //deep:true,
-      handler (value){
-        this.ruleForm = value
+      immediate: true,
+      deep: true,
+      handler(value){
+        this.ruleForm.activityNumber = value.activityNumber
+        this.ruleForm.activityName = value.activityName
+        this.ruleForm.details = value.details
+        this.ruleForm.access = value.access
+        this.ruleForm.preferentialRules = value.preferentialRules
+        this.ruleForm.able = value.able
       }
     }
-  }*/
+  }
 }
 </script>
 
