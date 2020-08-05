@@ -16,16 +16,17 @@
   "dependencies": {
     "axios": "0.18.0",
     "element-ui": "2.4.6",
-    "file-saver": "^2.0.2",
+    "file-saver": "2.0.2",
     "js-cookie": "2.2.0",
     "mockjs": "1.1.0",
     "normalize.css": "7.0.0",
     "nprogress": "0.2.0",
-    "qs": "^6.9.4",
+    "qs": "6.9.4",
     "vue": "2.5.17",
+    "vue-amap": "0.5.10",
     "vue-router": "3.0.1",
     "vuex": "3.0.1",
-    "xlsx": "^0.16.5"
+    "xlsx": "0.16.5"
   },
   "devDependencies": {
     "autoprefixer": "8.5.0",
