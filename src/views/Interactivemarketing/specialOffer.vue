@@ -13,6 +13,11 @@
       <addDiscountsActivity ref="adddialog" @addSuccess="addSuccess"></addDiscountsActivity>
     </el-dialog>
 
+    <!--编辑优惠活动窗口-->
+    <el-dialog  title="编辑优惠活动" :visible.sync="showEditDialog" :close-on-click-modal="false">
+      <editDiscountsActivity ref="editdialog" @editSuccess="editSuccess" @closeEditDialog="closeEditDialog" :RowData="rowData"></editDiscountsActivity>
+    </el-dialog>
+
     <br><br>
     <div>
 
@@ -67,7 +72,7 @@
           label="操作"
           width="300">
           <template slot-scope="scope">
-            <el-button type="primary" icon="el-icon-edit" @click=""></el-button>
+            <el-button type="primary" icon="el-icon-edit" @click="editDiscountsActivity(scope.row)"></el-button>
             <el-button type="primary" icon="el-icon-delete" @click="deleteRow(scope.row)"></el-button>
           </template>
         </el-table-column>
@@ -80,6 +85,7 @@
 
 <script>
 import addDiscountsActivity from './children/addDiscountsActivity'
+import editDiscountsActivity from "./children/editDiscountsActivity";
 
 export default {
   name: "specialOffer",
@@ -89,11 +95,13 @@ export default {
         {activityNumber:1,activityName:'首充优惠',details:'用户第一次充值时可以得到优惠',access:'首次充值即可获得',preferentialRules:'充值30元立减5元，充值50元立减10元，充值100元立减20元',able:false},
         {activityNumber:2,activityName:'首充优惠',details:'用户第一次充值时可以得到优惠',access:'首次充值即可获得',preferentialRules:'充值30元立减5元，充值50元立减10元，充值100元立减20元',able:true}
       ],
-      showAddDialog:false
+      showAddDialog:false,
+      showEditDialog:false,
+      rowData: null
     }
   },
   methods:{
-    /*控制活动的状态*/
+    /*状态监听*/
     onChange(data){
       if (data.able) {
         this.$notify.success({
@@ -106,7 +114,6 @@ export default {
           message: '优惠活动关闭成功！'
         })
       }
-      console.log(data)
     },
 
     /*添加优惠活动*/
@@ -132,12 +139,35 @@ export default {
         }
 
       }
+    },
+
+    /*编辑提交后执行*/
+    editSuccess(data){
+      let index = data.activityNumber
+      let tableData = this.tableData
+      for(let i = 0; i< tableData.length; i++){
+        if (index == tableData[i].activityNumber){
+          this.tableData.splice(i,1,data)
+        }
+      }
+      this.closeEditDialog()
+    },
+
+    /*编辑优惠活动*/
+    editDiscountsActivity(row){
+      this.rowData = row
+      this.showEditDialog = true
+    },
+    /*关闭编辑窗口*/
+    closeEditDialog(){
+      this.showEditDialog = false
     }
 
   },
   /*组件注册*/
   components:{
-    'addDiscountsActivity':addDiscountsActivity
+    'addDiscountsActivity':addDiscountsActivity,
+    'editDiscountsActivity':editDiscountsActivity
   }
 }
 </script>
