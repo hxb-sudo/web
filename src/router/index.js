@@ -56,19 +56,29 @@ export const constantRouterMap = [
             component: () => import('@/views/table/user/lessee'),
             name: 'table-1',
             meta: { title: '租户' },
-          },
-          {
-            path: 'table-2',
-            component: () => import('@/views/table/user/menu'),
-            name: 'table-2',
-            meta: { title: '菜单管理' }
-          },
-          //  租户路由
+          }
+          // ,
+          // {
+          //   path: 'table-2',
+          //   component: () => import('@/views/table/user/menu'),
+          //   name: 'table-2',
+          //   meta: { title: '菜单管理' }
+          // }
+          ,
+          //  修改租户路由
           {
             path: "usermessage/:id",
             name: "租户详情",
             component: () => import('@/views/table/user/lessee/les/message'),
             meta: { title: '租户详情', noCache: true },
+            hidden: true
+          }, 
+          //  添加租户路由
+          {
+            path: "usermessage",
+            name: "添加租户",
+            component: () => import('@/views/table/user/lessee/les/message'),
+            meta: { title: '添加租户', noCache: true },
             hidden: true
           }
         ]
@@ -79,6 +89,22 @@ export const constantRouterMap = [
         component: () => import('@/views/tree/index'),
         meta: { title: '用户管理', icon: 'tree' }
       },
+      // 修改用户
+      {
+        path: 'save/:id',
+        name: 'save',
+        component: () => import('@/views/tree/save'),
+        meta: { title: '用户修改' },
+        hidden: true
+      },
+       // 添加用户
+       {
+        path: 'save',
+        name: 'save',
+        component: () => import('@/views/tree/save'),
+        meta: { title: '添加用户' },
+        hidden: true
+      },
       {
         path: 'role',
         name: 'Role',
@@ -87,7 +113,23 @@ export const constantRouterMap = [
       }
     ]
   },
+  // 类别管理
+  {
+    path: '/classes',
+    component: Layout,
+    redirect: '/classes/index',
+    name: 'classes',
+    meta: { title: '产品管理', icon: 'example' },
+    children: [
+      {
+        path: 'index',
+        name: 'index',
+        component: () => import('@/views/classes/classes'),
+        meta: { title: '产品类别管理', icon: '' }
+      }
+    ]
 
+  },
   {
     path: '/form',
     component: Layout,
