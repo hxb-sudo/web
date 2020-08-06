@@ -2,7 +2,7 @@
   <div class="app-container">
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="智能快递柜" name="first">
-        <el-row :gutter="3">
+        <el-row :gutter="6">
           <el-col :span="3">
             <el-collapse accordion>
               <el-collapse-item>
@@ -11,6 +11,13 @@
                 <div>这是快递柜的简介</div>
               </el-collapse-item>
             </el-collapse>
+          </el-col>
+          <el-col :span="3">
+
+            <router-link :to="'./activesave'">
+              <el-button type="primary">添加设备类型</el-button>
+            </router-link>
+
           </el-col>
         </el-row>
         <!--  快递柜开始  -->

@@ -134,6 +134,13 @@ export const constantRouterMap = [
         component: () => import('@/views/classes/express/saveandupd'),
         meta: { title: '产品详情修改', icon: '' },
         hidden: true
+      },
+      {
+        path: 'activesave',
+        name: 'activesave',
+        component: () => import('@/views/classes/express/saveandupd'),
+        meta: { title: '产品添加', icon: '' },
+        hidden: true
       }
     ]
   },

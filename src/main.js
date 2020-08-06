@@ -15,6 +15,7 @@ import './permission' // permission control
 import './mock/index'
 import './mock/les'
 
+// import Calendar from 'vue-calendar-component' // 日历组件
 
 Vue.use(VueAMap);
 VueAMap.initAMapApiLoader({
@@ -25,7 +26,7 @@ VueAMap.initAMapApiLoader({
   v: '1.4.4'
 });
 
-Vue.use(ElementUI, { locale })
+Vue.use(ElementUI,{locale})
 
 Vue.config.productionTip = false
 
