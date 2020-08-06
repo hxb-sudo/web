@@ -72,7 +72,7 @@ export const constantRouterMap = [
             component: () => import('@/views/table/user/lessee/les/message'),
             meta: { title: '租户详情', noCache: true },
             hidden: true
-          }, 
+          },
           //  添加租户路由
           {
             path: "usermessage",
@@ -235,7 +235,7 @@ export const constantRouterMap = [
       }
     ]
   },
-
+  //订单管理
   {
     path: '/projectOrders',
     name: 'ProjectOrders',
@@ -259,7 +259,7 @@ export const constantRouterMap = [
       }
     ]
   },
-
+  //互动推广
   {
     path: '/interactivemarketing',
     name: 'Interactivemarketing',
@@ -280,6 +280,30 @@ export const constantRouterMap = [
         name: 'AdvertisingManagement',
         component: () => import('../views/Interactivemarketing/advertisingManagement'),
         meta: { title: '广告管理'}
+      }
+    ]
+  },
+  //工单管理
+  {
+    path: '/workOrderManage',
+    name: 'WorkOrderManage',
+    component: Layout,
+    meta: {
+      title: '工单管理',
+      icon: 'nested'
+    },
+    children: [
+      {
+        path: 'workOrderTypeManage',
+        name: 'WorkOrderTypeManage',
+        component: ()=> import('../views/workorderManage/workOrderTypeManage'),
+        meta: {title: '工单类型管理'}
+      },
+      {
+        path: 'workOrderInfo',
+        name: 'WorkOrderInfo',
+        component: ()=> import('../views/workorderManage/workOrderInfo'),
+        meta: {title: '工单信息'}
       }
     ]
   },
