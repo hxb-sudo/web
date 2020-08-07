@@ -50,7 +50,9 @@
       </el-table-column>
 
       <el-table-column prop="name" label="名称" width="80" />
+
       <el-table-column prop="type" label="类型" width="120" />
+      
       <el-table-column prop="firm" label="公司" width="200" />
       <el-table-column prop="tel" label="电话" width="100" />
       <el-table-column prop="addr" label="地址" width="250" />
