@@ -11,7 +11,7 @@ const user = {
   message: '请求OK！'
 }
 
-const info = {
+const info = {    
   code: 20000,
   data: {
     roles: ['admin']
