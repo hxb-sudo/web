@@ -4,9 +4,6 @@
     <div class="dashboard-text">roles:<span v-for="(role,index) in roles" :key="role">{{ role }}<span
           v-if="!index==roles.length-1">---</span></span></div>
 
-    <!-- 地图 -->
-
-
 
     <!--  可视化视图  -->
     <div style="width: 100%;height: 580px; ">
@@ -95,7 +92,7 @@
             // 系列中的数据内容数组
             data: [100, 932, 901, 934, 1290, 1330, 1320], //数据都是从数据库中来
             // 折线图
-            type: 'bar'  // line 线形图  bar 柱状图   
+            type: 'bar'  // line 线形图  bar 柱状图
           }],
           title: {
             text: '订单增长柱状图'
@@ -127,7 +124,7 @@
             // 系列中的数据内容数组
             data: [50, 2, 100, 4, 100, 6, 300], //数据都是从数据库中来
             // 折线图
-            type: 'line'  // line 线形图  bar 柱状图  pie 饼状图  
+            type: 'line'  // line 线形图  bar 柱状图  pie 饼状图
           }],
           title: {
             text: '用户增长线形图'
@@ -164,7 +161,7 @@
              {value:30,name:'不在线'},
             ], //数据都是从数据库中来
             // 折线图
-            type: 'pie'  // line 线形图  bar 柱状图  pie 饼状图  
+            type: 'pie'  // line 线形图  bar 柱状图  pie 饼状图
           }],
           title: {
             text: '柜机在线概览图',

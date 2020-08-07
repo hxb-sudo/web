@@ -235,6 +235,12 @@ export const constantRouterMap = [
         name: 'WorkOrderInfo',
         component: ()=> import('../views/workorderManage/workOrderInfo'),
         meta: {title: '工单信息'}
+      },
+      {
+        path: 'engineerManage',
+        name: 'EngineerManage',
+        component: ()=> import('../views/workorderManage/engineerManage'),
+        meta: {title: '工程人员管理'}
       }
     ]
   },

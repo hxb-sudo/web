@@ -33,6 +33,12 @@ const positionList = {
   ]
 }
 
+const logout = {
+  message: '请求OK！',
+  code: 20000,
+  data: [],
+}
+
 
 Mock.mock('http://127.0.0.1:8001/manageservice/loginlog/login', 'post', res => {
   return user
@@ -44,5 +50,9 @@ Mock.mock('http://127.0.0.1:8001/user/info', 'get', res => {
 
 Mock.mock('http://127.0.0.1:8001/manageservice/position/list', 'post', res => {
   return positionList
+})
+
+Mock.mock('http://127.0.0.1:8001/user/logout', 'post', res => {
+  return logout
 })
 

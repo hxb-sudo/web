@@ -1,11 +1,11 @@
 import { login, logout, getInfo } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
+import Cookies from 'js-cookie'
 import da from 'element-ui/src/locale/lang/da'
-
 const user = {
   state: {
     token: getToken(),
-    name: '',
+    name: 'admin',
     avatar: '',
     roles: [''],
   },
@@ -32,9 +32,9 @@ const user = {
       return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(response => {
           const data = response.data
-          setToken(data.token)
+          window.localStorage.setItem('token',data.token)
+          //setToken(data.token)
           commit('SET_NAME',data.name)
-          alert(data.roles)
           commit('SET_ROLES',data.roles)
           commit('SET_TOKEN', data.token)
           resolve()
@@ -66,7 +66,8 @@ const user = {
     // 登出
     LogOut({ commit, state }) {
       return new Promise((resolve, reject) => {
-        logout(state.token).then(() => {
+        logout().then(() => {
+          window.localStorage.removeItem('token')
           commit('SET_TOKEN', '')
           commit('SET_ROLES', [])
           removeToken()
@@ -80,6 +81,7 @@ const user = {
     // 前端 登出
     FedLogOut({ commit }) {
       return new Promise(resolve => {
+        window.localStorage.removeItem('token')
         commit('SET_TOKEN', '')
         removeToken()
         resolve()

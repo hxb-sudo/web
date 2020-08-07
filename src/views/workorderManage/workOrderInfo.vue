@@ -8,12 +8,12 @@
 
     </div>
 
-    <!--添加优惠活动窗口-->
+    <!--添加添加工单类型窗口-->
     <el-dialog title="添加工单类型" :visible.sync="showAddDialog" :close-on-click-modal="false" width="40%">
       <addWorkOrder ref="adddialog" @addSuccess="addSuccess"></addWorkOrder>
     </el-dialog>
 
-    <!--编辑优惠活动窗口-->
+    <!--编辑编辑工单类型窗口-->
     <el-dialog title="编辑工单类型" :visible.sync="showEditDialog" :close-on-click-modal="false">
       <editWorkOrderType ref="editdialog" @editSuccess="editSuccess" @closeEditDialog="closeEditDialog"
                          :RowData="rowData"></editWorkOrderType>
@@ -255,7 +255,7 @@ export default {
       let row = this.tableData[index[0]]
       let table = this.tableData
       if (index[1]==1){
-
+        this.pg(table,row)
       }else if (index[1]==2){
 
       }else if (index[1]==3){
@@ -378,6 +378,9 @@ export default {
       for (let i = 0; i < table.length; i++) {
         if (table[i].workOrderID == row.workOrderID) {
           table[i].finishedTime = row.time
+          table[i].cabinetID = row.cabinetID
+          table[i].keyID = row.keyID
+          table[i].SIM = row.SIM
           table[i].state = 0
           this.tableData.splice(i, 1, table[i])
         }
@@ -395,7 +398,36 @@ export default {
         }
       }
       this.showWcDialog = false
-    }
+    },
+    /*派工*/
+    pg(table,row){
+      this.$prompt('请输入指派的工程人员', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        //inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
+        //inputErrorMessage: '邮箱格式不正确'
+      }).then(({ value }) => {
+
+        for (let i = 0; i < table.length; i++) {
+          if (table[i].workOrderID == row.workOrderID) {
+            table[i].engineer = value
+            table[i].state = 5
+            this.tableData.splice(i, 1, table[i])
+          }
+        }
+
+        this.$message({
+          type: 'success',
+          message: '工单已派工'
+        });
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '取消输入'
+        });
+      });
+    },
+
 
   },
   created() {
