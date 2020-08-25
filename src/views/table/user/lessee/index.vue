@@ -38,24 +38,24 @@
     </el-form>
 
     <!-- 表格 -->
-    <el-table :data="list" border fit highlight-current-row>
-      <el-table-column label="序号" width="70" align="center">
+    <el-table :data="list" border highlight-current-row>
+      <el-table-column label="序号" align="center" min-width="5">
         <template slot-scope="scope">{{ (page - 1) * limit + scope.$index + 1 }}</template>
       </el-table-column>
 
-      <el-table-column prop="name" label="名称" width="80" />
-      <el-table-column prop="tel" label="手机号" width="120" />
-      <el-table-column prop="addr" label="公司住址" width="300" />
+      <el-table-column prop="name" label="名称" min-width="5"/>
+      <el-table-column prop="tel" label="手机号" min-width="10"/>
+      <el-table-column prop="addr" label="公司住址" min-width="20"/>
       <!-- <el-table-column label="性别" width="80">
         <template slot-scope="scope">
           {{ scope.row.level==1?'男':'女' }}
         </template>
       </el-table-column>-->
 
-      <el-table-column prop="gmtCreate" label="注册时间" width="160" />
-      <el-table-column prop="msmnum" label="开通短信条数" width="160" />
-      <el-table-column prop="equipmentnum" label="设备接入总数" width="160" />
-      <el-table-column label="操作" width="400" align="center">
+      <el-table-column prop="gmtCreate" label="注册时间" min-width="10"/>
+      <el-table-column prop="msmnum" label="开通短信条数"  min-width="10"/>
+      <el-table-column prop="equipmentnum" label="设备接入总数" min-width="10"/>
+      <el-table-column label="操作"  align="center" min-width="20">
         <template slot-scope="scope">
           <!-- :to 跳转到那个地方去-->
           <router-link :to="'usermessage/'+ scope.row.id">
