@@ -73,8 +73,8 @@
           align="center"
           >
           <template slot-scope="scope">
-            <el-button type="primary" icon="el-icon-edit" @click="edit(scope.row)"></el-button>
-            <el-button type="primary" icon="el-icon-delete" @click="del(scope.row)"></el-button>
+            <el-button size="small" type="primary" icon="el-icon-edit" @click="edit(scope.row)"></el-button>
+            <el-button size="small" type="primary" icon="el-icon-delete" @click="del(scope.row)"></el-button>
           </template>
         </el-table-column>
       </el-table>
