@@ -25,43 +25,43 @@
         <el-table-column
           prop="orderID"
           label="订单编号"
-          width="100">
+          >
         </el-table-column>
 
         <el-table-column
           prop="orderContent"
           label="订单内容"
-          width="200">
+          >
         </el-table-column>
 
         <el-table-column
           prop="gross"
           label="生产总量"
-          width="200">
+          >
         </el-table-column>
 
         <el-table-column
           prop="productionCount"
           label="正在进行数量"
-          width="200">
+          >
         </el-table-column>
 
         <el-table-column
           prop="overCount"
           label="已完成数量"
-          width="200">
+          >
         </el-table-column>
 
         <el-table-column
           prop="estimatedTime"
           label="预计完成时间"
-          width="200">
+          >
         </el-table-column>
 
         <el-table-column
           prop="remark"
           label="备注"
-          width="250">
+          >
 
         </el-table-column>
 
@@ -69,7 +69,7 @@
 
         <el-table-column
           label="操作"
-          width="200">
+          >
           <template slot-scope="scope">
             <el-button type="text" size="small" @click="editPosition(scope.row)">编辑</el-button>
           </template>

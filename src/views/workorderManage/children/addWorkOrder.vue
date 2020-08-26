@@ -129,7 +129,7 @@ export default {
     /*日期格式化*/
     dateFormat(date) {
       let str = ''
-      str = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDay() + 2) + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
+      str = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
       return str
     }
   },
