@@ -3,17 +3,16 @@
 
     <br><br>
     <div style="margin-left: 20px">
+      <el-form :inline="true" class="demo-form-inline">
 
-      <el-row>
-        <el-col :span="2">
-          <el-button type="primary" @click="add">新增柜机</el-button>
-        </el-col>
-        <el-col :span="4">
-          <label>柜机编号：</label>
+        <el-button type="primary" @click="add">新增柜机</el-button>
+
+        <el-form-item label="柜机编号：">
           <el-input v-model="search.cabinetID" style="width: 60%;"></el-input>
-        </el-col>
-        <el-col :span="5">
-          <label>柜机类型：</label>
+        </el-form-item>
+
+
+        <el-form-item label="柜机类型：">
           <el-select v-model="search.cabinetType" placeholder="请选择">
             <el-option
               label="请选择"
@@ -39,10 +38,10 @@
               label="看书柜"
               value="看书柜">
             </el-option>
-
           </el-select>
-        </el-col>
-        <el-col :span="6">
+        </el-form-item>
+
+        <el-form-item>
           <el-date-picker
             size="large"
             v-model="search.time"
@@ -51,16 +50,15 @@
             end-placeholder="结束日期"
             :default-time="['12:00:00']">
           </el-date-picker>
-        </el-col>
-        <el-col :span="4">
-          <el-button type="primary" icon="el-icon-search" @click="searchThis">搜索</el-button>
-        </el-col>
-        <el-col :span="1" align="center">
-          <el-button type="primary" @click="exportExcel">导出</el-button>
-        </el-col>
+        </el-form-item>
 
-      </el-row>
+        <el-button type="primary" icon="el-icon-search" @click="searchThis">搜索</el-button>
 
+
+        <el-button type="primary" @click="exportExcel">导出</el-button>
+
+
+      </el-form>
     </div>
 
     <!--添加优惠活动窗口-->
@@ -70,7 +68,8 @@
 
     <!--编辑-->
     <el-dialog title="配置柜机使用价格" :visible.sync="showEditDialog1" :close-on-click-modal="false">
-      <priceEdit ref="editdialog" @editSuccess="editSuccess" @closeEditDialog="closeEditDialog" :RowData="rowData"></priceEdit>
+      <priceEdit ref="editdialog" @editSuccess="editSuccess" @closeEditDialog="closeEditDialog"
+                 :RowData="rowData"></priceEdit>
     </el-dialog>
 
     <br><br>
@@ -85,35 +84,35 @@
           prop="cabinetID"
           label="柜机编号"
           align="center"
-          >
+        >
         </el-table-column>
 
         <el-table-column
           prop="cabinetType"
           label="柜机类型"
           align="center"
-          >
+        >
         </el-table-column>
 
         <el-table-column
           prop="cabinetSIM"
           label="柜机SIM"
           align="center"
-          >
+        >
         </el-table-column>
 
         <el-table-column
           prop="cabinetAddre"
           label="地址信息"
           align="center"
-          >
+        >
         </el-table-column>
 
         <el-table-column
           prop="state"
           label="运行状态"
           align="center"
-          >
+        >
           <template slot-scope="scope">
             <el-switch
               v-model="scope.row.state"
@@ -128,7 +127,7 @@
         <el-table-column
           label="操作"
           align="center"
-          >
+        >
           <template slot-scope="scope">
             <el-button type="primary" icon="el-icon-edit" @click="edit(scope.row)"></el-button>
             <el-button type="primary" icon="el-icon-delete" @click="del(scope.row)"></el-button>
@@ -213,8 +212,8 @@
           this.tableData = this.allData
           this.search = {
             cabinetID: null,
-              cabinetType: '',
-              time: [],
+            cabinetType: '',
+            time: [],
           }
           this.$message({
             type: 'success',
@@ -233,12 +232,12 @@
           return '上线'
         } else if (row.state === 1) {
           return '下线'
-        }else {
+        } else {
           return '未知'
         }
       },
       exportExcel() {
-        let xlsxParam = { raw: true }; //转换成excel时，使用原始的格式
+        let xlsxParam = {raw: true}; //转换成excel时，使用原始的格式
         / generate workbook object from table /
         /* 从表生成工作簿对象 */
         let wb = XLSX.utils.table_to_book(
@@ -258,9 +257,9 @@
             //Blob 表示的不一定是JavaScript原生格式的数据。
             //File 接口基于Blob，继承了 blob 的功能并将其扩展使其支持用户系统上的文件。
             //返回一个新创建的 Blob 对象，其内容由参数中给定的数组串联组成。
-            new Blob([wbout], { type: "application/octet-stream" }),
+            new Blob([wbout], {type: "application/octet-stream"}),
             //设置导出文件名称
-            new Date().getTime()+".xlsx"
+            new Date().getTime() + ".xlsx"
           );
         } catch (e) {
           if (typeof console !== "undefined") console.log(e, wbout);
@@ -269,34 +268,34 @@
       },
 
       //搜索
-      searchThis(){
+      searchThis() {
         this.tableData = this.allData
         let search = this.search
 
-        if (search.cabinetID){
-          this.tableData = this.tableData.filter(value =>{
+        if (search.cabinetID) {
+          this.tableData = this.tableData.filter(value => {
             return value.cabinetID.match(search.cabinetID)
           })
         }
 
-        if (search.cabinetType){
-          this.tableData = this.tableData.filter(value =>{
+        if (search.cabinetType) {
+          this.tableData = this.tableData.filter(value => {
             return value.cabinetType.match(search.cabinetType)
           })
         }
 
-        if (search.time[0]){
+        if (search.time[0]) {
 
-          this.tableData = this.tableData.filter(value =>{
-            if (new Date(value.starTime) > search.time[0]){
+          this.tableData = this.tableData.filter(value => {
+            if (new Date(value.starTime) > search.time[0]) {
               return search.time[0]
-            }else return null
+            } else return null
           })
 
-          this.tableData = this.tableData.filter(value =>{
-            if (new Date(value.finishedTime) < search.time[1]){
+          this.tableData = this.tableData.filter(value => {
+            if (new Date(value.finishedTime) < search.time[1]) {
               return search.time[1]
-            }else return null
+            } else return null
 
           })
         }
@@ -324,7 +323,7 @@
         url: '/manageservice/cabinet/cabinetManage',
         method: 'post',
         data: {}
-      }).then(response =>{
+      }).then(response => {
         this.allData = response.data
         this.tableData = response.data
       })

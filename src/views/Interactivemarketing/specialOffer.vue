@@ -28,35 +28,41 @@
         <el-table-column
           prop="activityNumber"
           label="活动编号"
+          align="center"
           >
         </el-table-column>
 
         <el-table-column
           prop="activityName"
           label="活动名称"
+          align="center"
           >
         </el-table-column>
 
         <el-table-column
           prop="details"
           label="优惠详情"
+          align="center"
           >
         </el-table-column>
 
         <el-table-column
           prop="access"
           label="获取途径"
+          align="center"
           >
         </el-table-column>
 
         <el-table-column
           prop="preferentialRules"
           label="优惠规则"
+          align="center"
           >
         </el-table-column>
 
         <el-table-column
           label="是否启用"
+          align="center"
           >
           <template slot-scope="scope">
           <el-switch
@@ -70,10 +76,11 @@
 
         <el-table-column
           label="操作"
+          align="center"
           >
           <template slot-scope="scope">
-            <el-button type="primary" icon="el-icon-edit" @click="editDiscountsActivity(scope.row)"></el-button>
-            <el-button type="primary" icon="el-icon-delete" @click="deleteRow(scope.row)"></el-button>
+            <el-button size="small" type="primary" icon="el-icon-edit" @click="editDiscountsActivity(scope.row)"></el-button>
+            <el-button size="small" type="primary" icon="el-icon-delete" @click="deleteRow(scope.row)"></el-button>
           </template>
         </el-table-column>
       </el-table>

@@ -4,16 +4,14 @@
     <br><br>
     <div style="margin-left: 20px">
 
-      <el-row>
-        <el-col :span="2">
-          <el-button type="primary" @click="add">新增物料</el-button>
-        </el-col>
-        <el-col :span="4">
-          <label>物料编号：</label>
-          <el-input v-model="search.cabinetID" style="width: 60%;"></el-input>
-        </el-col>
-        <el-col :span="5">
-          <label>物料规格：</label>
+      <el-form :inline="true" class="demo-form-inline" >
+        <el-button type="primary" @click="add">新增物料</el-button>
+        <el-form-item label="物料编号：">
+          <el-input v-model="search.cabinetID"></el-input>
+        </el-form-item>
+
+
+        <el-form-item label="物料规格：">
           <el-select v-model="search.cabinetType" placeholder="请选择">
             <el-option
               label="请选择"
@@ -31,27 +29,30 @@
               label="规格3"
               value="规格3">
             </el-option>
-
           </el-select>
-        </el-col>
-        <el-col :span="6">
-          <el-date-picker
-            size="large"
-            v-model="search.time"
-            type="datetimerange"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期"
-            :default-time="['12:00:00']">
-          </el-date-picker>
-        </el-col>
-        <el-col :span="4">
-          <el-button type="primary" icon="el-icon-search" @click="searchThis">搜索</el-button>
-        </el-col>
-        <el-col :span="1" align="center">
-          <el-button type="primary" @click="exportExcel">导出</el-button>
-        </el-col>
+        </el-form-item>
 
-      </el-row>
+
+
+          <el-form-item>
+            <el-date-picker
+              size="large"
+              v-model="search.time"
+              type="datetimerange"
+              start-placeholder="开始日期"
+              end-placeholder="结束日期"
+              :default-time="['12:00:00']">
+            </el-date-picker>
+          </el-form-item>
+
+
+        <el-button type="primary" icon="el-icon-search" @click="searchThis">搜索</el-button>
+        <el-button type="primary" @click="exportExcel">导出</el-button>
+      </el-form>
+
+
+
+
 
     </div>
 
@@ -122,8 +123,8 @@
           align="center"
           >
           <template slot-scope="scope">
-            <el-button type="primary" icon="el-icon-edit" @click="edit(scope.row)"></el-button>
-            <el-button type="primary" icon="el-icon-delete" @click="del(scope.row)"></el-button>
+            <el-button size="small" type="primary" icon="el-icon-edit" @click="edit(scope.row)"></el-button>
+            <el-button size="small" type="primary" icon="el-icon-delete" @click="del(scope.row)"></el-button>
           </template>
         </el-table-column>
       </el-table>

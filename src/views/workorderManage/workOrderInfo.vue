@@ -3,10 +3,12 @@
     <div v-if="!showDetails">
       <br><br>
       <div>
-        <el-button type="primary" @click="add">新增工单</el-button>
 
-        <!--<el-form>
-          <el-form-item label="处理人员：" style="width: 20%">
+
+        <el-form :inline="true" class="demo-form-inline">
+          <el-button type="primary" @click="add">新增工单</el-button>
+
+          <el-form-item label="处理人员：">
             <el-input v-model="search.engineer"></el-input>
           </el-form-item>
           <el-form-item label="处理类型：">
@@ -39,10 +41,11 @@
 
 
           <el-button type="primary" icon="el-icon-search" @click="searchThis">搜索</el-button>
-        </el-form>-->
+          <el-button type="primary" @click="exportExcel">导出</el-button>
+        </el-form>
 
 
-        <el-button type="primary" @click="exportExcel">导出</el-button>
+
 
 
 
