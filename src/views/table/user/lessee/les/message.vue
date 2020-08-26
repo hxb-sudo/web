@@ -129,8 +129,8 @@ export default {
 <style scoped>
   .app-container{
     width: 600px;
-    margin-left: 400px;
-    margin-top: 80px;
+    margin-left: 20%;
+    margin-top: 10%;
   }
 
 </style>

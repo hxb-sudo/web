@@ -20,16 +20,16 @@
     <div>
       <el-table :data="tableData" id="projectTab" style="width: 100%">
 
-        <el-table-column label="序号" width="70" align="center">
+        <el-table-column label="序号" min-width="10" align="center">
           <template slot-scope="scope">{{ (page - 1) * limit + scope.$index + 1 }}</template>
         </el-table-column>>
         
-        <el-table-column prop="role" label="角色" width="100"></el-table-column>
-        <el-table-column prop="checkedrole" label="权限" width="400"></el-table-column>
+        <el-table-column prop="role" label="角色" min-width="10"></el-table-column>
+        <el-table-column prop="checkedrole" label="权限" min-width="20"></el-table-column>
 
-        <el-table-column prop="description" label="描述" width="350"></el-table-column>
+        <el-table-column prop="description" label="描述" min-width="10"></el-table-column>
 
-        <el-table-column label="启用" width="100">
+        <el-table-column label="启用" min-width="10">
           <template slot-scope="scope">
             <el-switch
               v-model="scope.row.status"
@@ -40,7 +40,7 @@
           </template>
         </el-table-column>
 
-        <el-table-column label="操作" width="200">
+        <el-table-column label="操作" min-width="10">
           <template slot-scope="scope">
             <el-button type="text" size="small" @click="editPosition(scope.row)">编辑</el-button>
             <el-button type="text" size="small" @click="delPosition(scope.row.role)">删除</el-button>

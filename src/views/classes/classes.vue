@@ -22,20 +22,20 @@
         </el-row>
         <!--  快递柜开始  -->
         <!--展示页  短名称  长名称  宽  高  深  状态  备注-->
-        <el-table :data="expresslist" border fit highlight-current-row>
-          <el-table-column label="序号" width="70" align="center">
+        <el-table :data="expresslist" border  highlight-current-row>
+          <el-table-column label="序号" min-width="5" align="center">
             <template slot-scope="scope">{{ (page - 1) * limit + scope.$index + 1 }}</template>
           </el-table-column>
 
-          <el-table-column prop="shortname" label="短名称" width="150" />
-          <el-table-column prop="longname" label="长名称" width="300" />
-          <el-table-column prop="wide" label="宽" width="80" />
+          <el-table-column prop="shortname" label="短名称" min-width="10" />
+          <el-table-column prop="longname" label="长名称" min-width="25" />
+          <el-table-column prop="wide" label="宽" min-width="5" />
 
-          <el-table-column prop="hige" label="高" width="80" />
-          <el-table-column prop="deep" label="深" width="80" />
-          <el-table-column prop="description" label="备注" width="160" />
+          <el-table-column prop="hige" label="高" min-width="5" />
+          <el-table-column prop="deep" label="深" min-width="5" />
+          <el-table-column prop="description" label="备注" min-width="10" />
 
-          <el-table-column label="状态" width="100">
+          <el-table-column label="状态" min-width="5">
             <template slot-scope="scope">
               <el-switch
                 v-model="scope.row.status"
@@ -46,7 +46,7 @@
             </template>
           </el-table-column>
 
-          <el-table-column label="操作" width="400" align="center">
+          <el-table-column label="操作" min-width="25" align="center">
             <template slot-scope="scope">
               <!-- :to 跳转到那个地方去-->
               <!-- <router-link :to="'usermessage/'+ scope.row.id"> -->

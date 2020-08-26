@@ -44,25 +44,25 @@
     </el-form>
 
     <!-- 表格 -->
-    <el-table :data="list" border fit highlight-current-row>
-      <el-table-column label="序号" width="70" align="center">
+    <el-table :data="list" border  highlight-current-row>
+      <el-table-column label="序号" min-width="5" align="center">
         <template slot-scope="scope">{{ (page - 1) * limit + scope.$index + 1 }}</template>
       </el-table-column>
 
-      <el-table-column prop="name" label="名称" width="80" />
+      <el-table-column prop="name" label="名称" min-width="5" />
 
-      <el-table-column prop="type" label="类型" width="120" />
+      <el-table-column prop="type" label="类型" min-width="5" />
       
-      <el-table-column prop="firm" label="公司" width="200" />
-      <el-table-column prop="tel" label="电话" width="100" />
-      <el-table-column prop="addr" label="地址" width="250" />
-      <el-table-column prop="email" label="邮箱" width="150" />
+      <el-table-column prop="firm" label="公司" min-width="10" />
+      <el-table-column prop="tel" label="电话" min-width="10" />
+      <el-table-column prop="addr" label="地址" min-width="10" />
+      <el-table-column prop="email" label="邮箱" min-width="10" />
       <!--  图片信息  -->
 
-      <el-table-column prop="gmtCreate" label="注册时间" width="100" />
-      <el-table-column prop="gmtEnd" label="结束时间" width="100" />
+      <el-table-column prop="gmtCreate" label="注册时间" min-width="10" />
+      <el-table-column prop="gmtEnd" label="结束时间" min-width="10" />
 
-       <el-table-column label="状态" class-name="status-col" width="70">
+       <el-table-column label="状态" class-name="status-col" min-width="5">
         <template slot-scope="{row}">
           <el-tag :type="row.status | statusFilter">
             {{ row.status }}
@@ -70,7 +70,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column label="操作" width="400" align="center">
+      <el-table-column label="操作" min-width="10" align="center">
         <template slot-scope="scope">
           <!-- :to 跳转到那个地方去-->
           <router-link :to="'save/'+ scope.row.id">
