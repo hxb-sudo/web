@@ -13,7 +13,6 @@ export function login(username, password) {
 }
 
 export function getInfo(token) {
-  alert(data.token)
   return request({
     url: '/user/info',
     method: 'get',
@@ -21,7 +20,7 @@ export function getInfo(token) {
   })
 }
 
-export function logout() {  
+export function logout() {
   return request({
     url: '/user/logout',
     method: 'post'

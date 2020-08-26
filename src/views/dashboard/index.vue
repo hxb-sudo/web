@@ -3,9 +3,8 @@
     <div class="dashboard-text">name:{{ name }}</div>
     <div class="dashboard-text">
       roles:
-      <span v-for="(role,index) in roles" :key="role">
+      <span v-for="role in roles">
         {{ role }}
-        <span v-if="!index==roles.length-1">---</span>
       </span>
     </div>
     <el-row>
@@ -38,7 +37,7 @@
           </div>
           <div style="width: 525px; height: 149px; background-color: #fff; margin-top: 10px; padding-top: 15px;padding-left: 20px;">
             <div style="font-weight: 700;">工单信息</div>
-            <ui class="gd">
+            <span class="gd">
               <li>
                 <div>1</div>
                 总数
@@ -55,12 +54,12 @@
                 <div>1</div>
                 执行中
               </li>
-            </ui>
+            </span>
 
           </div>
           <div style="width: 525px; height: 149px; background-color: #fff; margin-top: 10px; padding-top: 15px;padding-left: 20px;">
             <div style="font-weight: 700;">警报信息</div>
-            <ui class="jb">
+            <span class="jb">
               <li>
                 <div>1</div>
                 总数
@@ -73,7 +72,7 @@
                 <div>1</div>
                 已解锁
               </li>
-            </ui>
+            </span>
           </div>
         </div>
       </el-col>
@@ -254,8 +253,8 @@
 
     },
     created() {
-      this.name = this.$store.state.user.name;
-      this.roles = this.$store.state.user.roles;
+      this.name = window.localStorage.getItem('user');
+      this.roles = window.localStorage.getItem('roles');
       //this.initChartData()
     },
     // 页面渲染后
@@ -288,7 +287,7 @@
     height: 570px;
   }
 
-  ui li {
+  span li {
     display: inline-block;
   }
 

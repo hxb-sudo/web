@@ -119,7 +119,7 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/classes/index',
     name: 'classes',
-    meta: { title: '产品管理', icon: 'example' },
+    meta: { title: '产品管理', icon: 'tree' },
     children: [
       {
         path: 'index',
@@ -149,7 +149,7 @@ export const constantRouterMap = [
     component: Layout,
     meta: {
       title: '基础信息',
-      icon: 'nested'
+      icon: 'form'
     },
     children: [
       {
@@ -173,7 +173,7 @@ export const constantRouterMap = [
     component: Layout,
     meta: {
       title: '项目订单管理',
-      icon: 'nested'
+      icon: 'link'
     },
     children: [
       {
@@ -183,10 +183,10 @@ export const constantRouterMap = [
         meta: { title: '生产订单管理' }
       },
       {
-        path: 'position1',
-        name: 'Position',
-        component: () => import('../views/basicInformation/position'),
-        meta: { title: '位置信息' }
+        path: 'putInStorage',
+        name: 'PutInStorage',
+        component: () => import('../views/myAssets/putInStorage'),
+        meta: { title: '物料管理' }
       }
     ]
   },
@@ -221,7 +221,7 @@ export const constantRouterMap = [
     component: Layout,
     meta: {
       title: '工单管理',
-      icon: 'nested'
+      icon: 'user'
     },
     children: [
       {
@@ -242,6 +242,37 @@ export const constantRouterMap = [
         component: ()=> import('../views/workorderManage/engineerManage'),
         meta: {title: '工程人员管理'}
       }
+    ]
+  },
+  //工单管理
+  {
+    path: '/myAssets',
+    name: 'MyAssets',
+    component: Layout,
+    meta: {
+      title: '我的资产',
+      icon: 'user'
+    },
+    children: [
+      {
+        path: 'cabinetManage',
+        name: 'CabinetManage',
+        component: ()=> import('../views/myAssets/CabinetManage'),
+        meta: {title: '柜机管理'}
+      },
+      {
+        path: 'advertisingManagement',
+        name: 'AdvertisingManagement',
+        component: () => import('../views/Interactivemarketing/advertisingManagement'),
+        meta: { title: '广告管理' }
+      },
+      {
+        path: 'putInStorage',
+        name: 'PutInStorage',
+        component: () => import('../views/myAssets/putInStorage'),
+        meta: { title: '物料管理' }
+      },
+
     ]
   },
 

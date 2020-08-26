@@ -33,6 +33,8 @@ const user = {
         login(username, userInfo.password).then(response => {
           const data = response.data
           window.localStorage.setItem('token',data.token)
+          window.localStorage.setItem('user',data.name)
+          window.localStorage.setItem('roles',data.roles)
           //setToken(data.token)
           commit('SET_NAME',data.name)
           commit('SET_ROLES',data.roles)

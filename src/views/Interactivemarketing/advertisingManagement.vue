@@ -29,20 +29,20 @@
           align="center"
           prop="AdvertisingNumber"
           label="广告编号"
-          width="100">
+          >
         </el-table-column>
 
         <el-table-column
           align="center"
           prop="advertisingType"
           label="广告类型"
-          width="200">
+          >
         </el-table-column>
 
         <el-table-column
           align="center"
           label="广告内容"
-          width="400">
+          >
           <template slot-scope="scope">
             <img :src="scope.row.picture" style="width: 200px; height: 100px">
           </template>
@@ -51,7 +51,7 @@
         <el-table-column
           align="center"
           label="是否启用"
-          width="200">
+          >
           <template slot-scope="scope">
             <el-switch
               v-model="scope.row.able"
@@ -66,13 +66,13 @@
           align="center"
           prop="createTime"
           label="创建时间"
-          width="400">
+          >
         </el-table-column>
 
         <el-table-column
           align="center"
           label="操作"
-          width="300">
+          >
           <template slot-scope="scope">
             <el-button type="primary" icon="el-icon-edit" @click="edit(scope.row)"></el-button>
             <el-button type="primary" icon="el-icon-delete" @click="deleteRow(scope.row)"></el-button>
