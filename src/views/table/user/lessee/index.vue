@@ -59,7 +59,7 @@
         <template slot-scope="scope">
           <!-- :to 跳转到那个地方去-->
           <router-link :to="'usermessage/'+ scope.row.id">
-            <el-button type="primary" size="mini" icon="el-icon-edit">编辑详情信息</el-button>
+            <el-button type="primary" size="mini" icon="el-icon-edit">编辑</el-button>
           </router-link>
           <el-button
             type="danger"
